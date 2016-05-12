@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nicolas
- * Date: 24/08/15
- * Time: 10:40
- */
+
 namespace CultuurNet\UitidCredentials;
 
 use CultuurNet\UitidCredentials\Entities\Consumer;
@@ -23,4 +18,10 @@ interface UitidCredentialsService
      * @return Token
      */
     public function getAccessToken($tokenKey);
+
+    /**
+     * @param string $jwt
+     * @return Token
+     */
+    public function getAccessTokenFromJwt($jwt);
 }

@@ -73,7 +73,6 @@ class UitidCredentialsFetcherTest extends \PHPUnit_Framework_TestCase
 
         $token =  $this->fetcher->getAccessToken('0005548e3bfe0a47938fd5b1c8369ff1');
 
-
         $correctToken = new Token(
             '0005548e3bfe0a47938fd5b1c8369ff1',
             '0943093409903409023092439023',
@@ -86,6 +85,32 @@ class UitidCredentialsFetcherTest extends \PHPUnit_Framework_TestCase
                 'd454b97f34c14dac0430ea1bd3f16d45',
                 '0943093409903409023092439023',
                 'UiTDatabank'
+            )
+        );
+
+        $this->assertEquals(
+            $correctToken,
+            $token
+        );
+    }
+
+    public function testGetTokenFromJwt()
+    {
+        $xml = file_get_contents(__DIR__ . '/samples/token-without-consumer.xml');
+
+        $response = new Response('200', null, $xml);
+
+        $this->apiMock->addResponse($response);
+
+        $token =  $this->fetcher->getAccessToken('0005548e3bfe0a47938fd5b1c8369ff1');
+
+        $correctToken = new Token(
+            '2143f7db7642b3687e90d718b79a42ce',
+            '4c06eb61aa814a057578640ee61ea420',
+            new User(
+                '12346093-0e7e-4803-be0b-69b24c145f89',
+                'testtesttest',
+                'testtestest@cultuurnet.be'
             )
         );
 

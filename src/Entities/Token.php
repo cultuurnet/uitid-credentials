@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nicolas
- * Date: 24/08/15
- * Time: 11:34
- */
 
 namespace CultuurNet\UitidCredentials\Entities;
 

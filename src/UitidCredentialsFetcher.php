@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nicolas
- * Date: 24/08/15
- * Time: 11:02
- */
 
 namespace CultuurNet\UitidCredentials;
 
@@ -35,8 +29,26 @@ class UitidCredentialsFetcher extends OAuthProtectedService implements UitidCred
      */
     public function getAccessToken($tokenKey)
     {
+        return $this->getAccessTokenFromPath('/uitid/rest/authapi/accesstoken/' . $tokenKey);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAccessTokenFromJwt($jwt)
+    {
+        $jwt = (string) $jwt;
+        return $this->getAccessTokenFromPath('/uitid/rest/authapi/jwt2at?jwt=' . $jwt);
+    }
+
+    /**
+     * @param string $path
+     * @return Token
+     */
+    private function getAccessTokenFromPath($path)
+    {
         $client = $this->getClient();
-        $request = $client->get('/uitid/rest/authapi/accesstoken/' . $tokenKey);
+        $request = $client->get($path);
 
         $response = $request->send();
         $xmlElement = new \SimpleXMLElement($response->getBody(true));

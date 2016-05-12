@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+    <code>SUCCEEDED</code>
+    <token>
+        <token>2143f7db7642b3687e90d718b79a42ce</token>
+        <tokenSecret>4c06eb61aa814a057578640ee61ea420</tokenSecret>
+        <user>
+            <email>testtestest@cultuurnet.be</email>
+            <nick>testtesttest</nick>
+            <uid>12346093-0e7e-4803-be0b-69b24c145f89</uid>
+        </user>
+    </token>
+</response>
