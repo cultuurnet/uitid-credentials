@@ -15,13 +15,16 @@ class UitidCredentialsFetcher extends OAuthProtectedService implements UitidCred
     {
         $client = $this->getClient();
         $request = $client->get('/uitid/rest/authapi/consumer/' . $consumerKey);
+        $consumer = null;
 
         $response = $request->send();
         $xmlElement = new \SimpleXMLElement($response->getBody(true));
 
         if (!empty($xmlElement->consumer)) {
-            return Consumer::parseFromXml($xmlElement->consumer);
+            $consumer = Consumer::parseFromXml($xmlElement->consumer);
         }
+
+        return $consumer;
     }
 
     /**
@@ -43,18 +46,21 @@ class UitidCredentialsFetcher extends OAuthProtectedService implements UitidCred
 
     /**
      * @param string $path
-     * @return Token
+     * @return Token|null
      */
     private function getAccessTokenFromPath($path)
     {
         $client = $this->getClient();
         $request = $client->get($path);
+        $consumer = null;
 
         $response = $request->send();
         $xmlElement = new \SimpleXMLElement($response->getBody(true));
 
         if (!empty($xmlElement->token)) {
-            return Token::parseFromXml($xmlElement->token);
+            $consumer =  Token::parseFromXml($xmlElement->token);
         }
+
+        return $consumer;
     }
 }

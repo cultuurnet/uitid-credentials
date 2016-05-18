@@ -102,7 +102,7 @@ class UitidCredentialsFetcherTest extends \PHPUnit_Framework_TestCase
 
         $this->apiMock->addResponse($response);
 
-        $token =  $this->fetcher->getAccessToken('0005548e3bfe0a47938fd5b1c8369ff1');
+        $token =  $this->fetcher->getAccessTokenFromJwt('0005548e3bfe0a47938fd5b1c8369ff1');
 
         $correctToken = new Token(
             '2143f7db7642b3687e90d718b79a42ce',

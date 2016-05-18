@@ -9,19 +9,19 @@ interface UitidCredentialsService
 {
     /**
      * @param string $consumerKey
-     * @return Consumer
+     * @return Consumer|null
      */
     public function getConsumer($consumerKey);
 
     /**
      * @param string $tokenKey
-     * @return Token
+     * @return Token|null
      */
     public function getAccessToken($tokenKey);
 
     /**
      * @param string $jwt
-     * @return Token
+     * @return Token|null
      */
     public function getAccessTokenFromJwt($jwt);
 }
