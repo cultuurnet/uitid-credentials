@@ -52,15 +52,15 @@ class UitidCredentialsFetcher extends OAuthProtectedService implements UitidCred
     {
         $client = $this->getClient();
         $request = $client->get($path);
-        $consumer = null;
+        $token = null;
 
         $response = $request->send();
         $xmlElement = new \SimpleXMLElement($response->getBody(true));
 
         if (!empty($xmlElement->token)) {
-            $consumer =  Token::parseFromXml($xmlElement->token);
+            $token = Token::parseFromXml($xmlElement->token);
         }
 
-        return $consumer;
+        return $token;
     }
 }
