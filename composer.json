@@ -18,7 +18,7 @@
       }
     ],
     "require": {
-        "cultuurnet/Auth": "~3.0"
+        "cultuurnet/Auth": "~1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.7",
