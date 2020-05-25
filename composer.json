@@ -5,20 +5,12 @@
     "license": "Apache-2.0",
     "authors": [
       {
-        "name": "Nicolas Leroy",
-        "email": "nicolas.leroy@gmail.com"
-      },
-      {
-        "name": "Jonas Verhaeghe",
-        "email": "Jonas@cultuurnet.be"
-      },
-      {
-        "name": "Kristof Coomans",
-        "email": "kristof@2dotstwice.be"
+        "name": "Publiq vzw",
+        "email": "info@publiq.be"
       }
     ],
     "require": {
-        "cultuurnet/Auth": "~3.0"
+        "cultuurnet/auth": "~3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.7",
